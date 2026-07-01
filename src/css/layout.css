@@ -194,16 +194,11 @@
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    top: calc(100% + 1rem); /* Float directly below header */
+    top: calc(100% + 1rem);
     left: 4%;
     right: 4%;
     width: auto;
     height: auto;
-    background: rgba(10, 10, 10, 0.7); /* Increased opacity as a fallback for when blur fails */
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -215,6 +210,16 @@
     z-index: 100;
     transform: translateY(-20px) scale(0.95);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-links::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: rgba(10, 10, 10, 0.85); /* Slightly darker for better contrast */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: -1;
   }
   .nav-links.active {
     opacity: 1;
