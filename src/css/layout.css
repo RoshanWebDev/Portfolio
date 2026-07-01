@@ -180,8 +180,11 @@
     top: 1rem;
   }
   .navbar::before {
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
   .header-cta {
     display: none;
@@ -196,9 +199,11 @@
     right: 4%;
     width: auto;
     height: auto;
-    background: rgba(10, 10, 10, 0.45); /* Highly translucent to reveal the blur */
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
+    background: rgba(10, 10, 10, 0.7); /* Increased opacity as a fallback for when blur fails */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     flex-direction: column;
     justify-content: center;
     align-items: center;
