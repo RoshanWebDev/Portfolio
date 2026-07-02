@@ -151,7 +151,7 @@
   border-radius: 16px;
   border: 1px solid transparent;
   border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 6%, transparent);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -227,7 +227,7 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .resume-desc-inner {
@@ -305,6 +305,12 @@
     gap: 10px;
     padding: 12px 16px;
     margin: 0 -16px;
+  }
+  
+  .resume-desc {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: none;
   }
   
   .resume-item:hover {

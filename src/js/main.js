@@ -2,6 +2,14 @@ import { initCursor } from './cursor.js';
 import { initAnimations } from './animations.js';
 import { initParallax } from './parallax.js';
 
+const preloadIcons = () => {
+  ['https://cdn.simpleicons.org/shopify/95BF47', 'https://cdn.simpleicons.org/wordpress/21759b', 'https://cdn.simpleicons.org/react/61DAFB'].forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+preloadIcons();
+
 export function initAll() {
   initCursor();
   initAnimations();
@@ -98,16 +106,21 @@ function initHeader() {
 
   if (!header) return;
 
+  let isTicking = false;
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    // Add sleek scrolled state (glassmorphism & shrinking)
-    if (currentScroll > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        isTicking = false;
+      });
+      isTicking = true;
     }
-  });
+  }, { passive: true });
 }
 
 function initScrollSpy() {

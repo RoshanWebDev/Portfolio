@@ -158,7 +158,8 @@ export default function Projects() {
                   opacity: opacity,
                   pointerEvents: pointerEvents,
                   cursor: isActive ? 'default' : 'pointer',
-                  transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
+                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                  willChange: 'transform, opacity'
                 }}
               >
                 <div className="aw-card-top">
