@@ -52,7 +52,7 @@
   inset: 0;
   border-radius: inherit;
   background: rgba(10, 10, 10, 0.4);
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(30px);
   z-index: -1;
   pointer-events: none;
 }
@@ -179,10 +179,7 @@
     top: 1rem;
   }
   .navbar::before {
-    backdrop-filter: blur(24px);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
+    backdrop-filter: blur(30px);
   }
   .header-cta {
     display: none;
@@ -214,8 +211,8 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background-color: rgba(10, 10, 10, 0.85); /* Slightly darker for better contrast */
-    backdrop-filter: blur(24px);
+    background-color: rgba(10, 10, 10, 0.5); /* Lighter for visible blur */
+    backdrop-filter: blur(30px);
     z-index: -1;
   }
   .nav-links.active {
