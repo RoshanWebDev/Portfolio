@@ -8,6 +8,8 @@ html {
   font-size: 16px; /* Base 16px */
   scroll-behavior: smooth;
   scroll-padding-top: 100px; /* Accounts for header height for a neat view */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -15,7 +17,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.7; /* Increased for better readability */
-  overflow-x: clip;
+  overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
