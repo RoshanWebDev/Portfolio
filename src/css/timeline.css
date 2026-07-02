@@ -308,17 +308,20 @@
     gap: 10px;
     padding: 12px 16px;
     margin: 0 -16px;
+    transition: none;
   }
   
   .resume-desc {
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: none;
+    display: none;
   }
   
   .resume-item.is-expanded .resume-desc {
-    max-height: 350px;
+    max-height: none;
     opacity: 1;
+    display: block;
   }
   
   .resume-item:not(.is-expanded):hover .resume-desc {
