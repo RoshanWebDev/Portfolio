@@ -321,6 +321,11 @@
     opacity: 1;
   }
   
+  .resume-item:not(.is-expanded):hover .resume-desc {
+    max-height: 0;
+    opacity: 0;
+  }
+  
   .resume-item:hover {
     transform: none;
   }
