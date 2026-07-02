@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Experience() {
+  const [expandedItem, setExpandedItem] = useState(null);
+
+  const toggleItem = (id) => {
+    setExpandedItem(prev => prev === id ? null : id);
+  };
+
   return (
     <section id="timeline" className="awwwards-resume-section section">
       <div className="container">
@@ -23,7 +29,11 @@ export default function Experience() {
             
             <div className="resume-list">
               {/* Item 1 */}
-              <div className="resume-item">
+              <div 
+                className={`resume-item ${expandedItem === 'edu1' ? 'is-expanded' : ''}`}
+                onClick={() => toggleItem('edu1')}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="resume-item-top">
                   <div className="resume-item-left">
                     <h4>B.Sc. Information Technology</h4>
@@ -37,7 +47,11 @@ export default function Experience() {
               </div>
 
               {/* Item 2 */}
-              <div className="resume-item">
+              <div 
+                className={`resume-item ${expandedItem === 'edu2' ? 'is-expanded' : ''}`}
+                onClick={() => toggleItem('edu2')}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="resume-item-top">
                   <div className="resume-item-left">
                     <h4>Higher Secondary Certificate</h4>
@@ -64,7 +78,11 @@ export default function Experience() {
             
             <div className="resume-list">
               {/* Item 1 */}
-              <div className="resume-item">
+              <div 
+                className={`resume-item ${expandedItem === 'work1' ? 'is-expanded' : ''}`}
+                onClick={() => toggleItem('work1')}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="resume-item-top">
                   <div className="resume-item-left">
                     <h4>Full Stack & E-Commerce Developer</h4>
@@ -78,7 +96,11 @@ export default function Experience() {
               </div>
 
               {/* Item 2 */}
-              <div className="resume-item">
+              <div 
+                className={`resume-item ${expandedItem === 'work2' ? 'is-expanded' : ''}`}
+                onClick={() => toggleItem('work2')}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="resume-item-top">
                   <div className="resume-item-left">
                     <h4>Frontend Developer Intern</h4>
