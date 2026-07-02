@@ -2,6 +2,10 @@ import { initCursor } from './cursor.js';
 import { initAnimations } from './animations.js';
 import { initParallax } from './parallax.js';
 
+let orbitsRafId = null;
+let roleSwitcherInterval = null;
+let projectSliderInterval = null;
+
 const preloadIcons = () => {
   ['https://cdn.simpleicons.org/shopify/95BF47', 'https://cdn.simpleicons.org/wordpress/21759b', 'https://cdn.simpleicons.org/react/61DAFB'].forEach(src => {
     const img = new Image();
@@ -82,7 +86,9 @@ function initRoleSwitcher() {
   roleElement.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
   iconElement.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
 
-  setInterval(() => {
+  if (roleSwitcherInterval) clearInterval(roleSwitcherInterval);
+
+  roleSwitcherInterval = setInterval(() => {
     roleElement.style.opacity = 0;
     roleElement.style.transform = 'translateY(4px)';
     iconElement.style.opacity = 0;
@@ -198,6 +204,8 @@ function initOrbits() {
 
   let start = null;
 
+  if (orbitsRafId) cancelAnimationFrame(orbitsRafId);
+
   function frame(ts) {
     if (!start) start = ts;
     const elapsed = ts - start;
@@ -220,10 +228,10 @@ function initOrbits() {
       el.style.transform = `translate(calc(-50% + ${x.toFixed(2)}px), calc(-50% + ${y.toFixed(2)}px))`;
     });
 
-    requestAnimationFrame(frame);
+    orbitsRafId = requestAnimationFrame(frame);
   }
 
-  requestAnimationFrame(frame);
+  orbitsRafId = requestAnimationFrame(frame);
 }
 
 function initScrollTop() {
@@ -245,16 +253,16 @@ function initProjectSlider() {
   let isDown = false;
   let startX;
   let scrollLeft;
-  let autoScrollInterval;
 
   const startAutoScroll = () => {
-    autoScrollInterval = setInterval(() => {
+    if (projectSliderInterval) clearInterval(projectSliderInterval);
+    projectSliderInterval = setInterval(() => {
       if(!isDown) slider.scrollLeft += 1;
     }, 40);
   };
 
   const stopAutoScroll = () => {
-    clearInterval(autoScrollInterval);
+    if (projectSliderInterval) clearInterval(projectSliderInterval);
   };
 
   startAutoScroll();

@@ -224,6 +224,7 @@
   align-items: center;
   justify-content: center;
   z-index: 4;
+  pointer-events: none;
 }
 .orbit-center-glow {
   position: absolute;
@@ -263,6 +264,12 @@
   left: 50%;
   z-index: 3;
   pointer-events: auto;
+  will-change: transform;
+}
+.orbit-icon-pos:has(.oi-wrap:hover),
+.orbit-icon-pos:has(.oi-wrap:active),
+.orbit-icon-pos:has(.oi-wrap:focus) {
+  z-index: 50;
 }
 
 /* No counter-rotation needed — JS uses pure translate, no rotation */
@@ -336,8 +343,16 @@
   transition: opacity 0.2s ease;
   letter-spacing: 0.3px;
 }
-.oi-wrap:hover .oi-tip {
+.oi-wrap:hover .oi-tip,
+.oi-wrap:active .oi-tip,
+.oi-wrap:focus .oi-tip {
   opacity: 1;
+}
+
+.oi-wrap:hover,
+.oi-wrap:active,
+.oi-wrap:focus {
+  z-index: 50;
 }
 
 @keyframes orbitPulse {
