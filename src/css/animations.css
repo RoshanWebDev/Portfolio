@@ -111,4 +111,11 @@
   .cursor-dot, .cursor-outline {
     display: none !important;
   }
+  /* Remove section reveal animations on mobile for better performance */
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
 }

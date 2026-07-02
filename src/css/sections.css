@@ -789,6 +789,10 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  .skills-bento > div:nth-child(1) { order: 1; }
+  .skills-bento > div:nth-child(3) { order: 2; }
+  .skills-bento > div:nth-child(4) { order: 3; }
+  .skills-bento > div:nth-child(2) { order: 4; }
   .bento-wide {
     grid-column: span 1;
   }
