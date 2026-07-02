@@ -1146,7 +1146,6 @@
   height: 460px;
   background: rgba(20, 20, 25, 0.5);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-radius: 48px;
   padding: 1.5rem;
   display: flex;
@@ -1370,7 +1369,6 @@
   .aw-project-card.is-active {
     background: rgba(20, 20, 25, 0.85);
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
   }
   
   .aw-project-card:not(.is-active) {
@@ -1800,7 +1798,6 @@
   border-radius: 24px;
   background: rgba(13, 13, 18, 0.45);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   box-shadow:

@@ -53,7 +53,6 @@
   border-radius: inherit;
   background: rgba(10, 10, 10, 0.4);
   backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
   z-index: -1;
   pointer-events: none;
 }
@@ -181,7 +180,6 @@
   }
   .navbar::before {
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -218,7 +216,6 @@
     border-radius: inherit;
     background-color: rgba(10, 10, 10, 0.85); /* Slightly darker for better contrast */
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
     z-index: -1;
   }
   .nav-links.active {
