@@ -3,8 +3,8 @@ export function initCursor() {
   const cursorOutline = document.getElementById('cursor-outline');
   const magneticEls = document.querySelectorAll('.magnetic-btn');
   
-  // Check if touch device or mobile screen
-  if (window.innerWidth <= 768 || window.matchMedia("(pointer: coarse)").matches) {
+  // Check if touch device
+  if (window.matchMedia("(pointer: coarse)").matches) {
     if(cursorDot) cursorDot.style.display = 'none';
     if(cursorOutline) cursorOutline.style.display = 'none';
     return;

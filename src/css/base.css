@@ -1,7 +1,15 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Force hardware acceleration on glass elements to prevent scroll lag */
+.glass, .glass-panel, .site-header, .project-card, .skill-card, .timeline-content {
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 html {
