@@ -291,6 +291,9 @@
 @media (max-width: 768px) {
   .resume-card {
     padding: 20px 16px;
+    /* Dramatically reduce blur radius on mobile to prevent GPU scroll lag */
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    backdrop-filter: blur(12px) saturate(150%);
   }
   
   .resume-card-title {

@@ -187,8 +187,6 @@ function initOrbits() {
   const innerIcons = document.querySelectorAll('.orbit-group-inner .orbit-icon-pos');
 
   if (!outerIcons.length) return;
-  // Disable JS-heavy continuous orbit animation on mobile devices
-  if (window.innerWidth <= 768) return;
 
   const OUTER_R  = 148;   // px
   const INNER_R  = 82;    // px
