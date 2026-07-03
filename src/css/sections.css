@@ -1,6 +1,6 @@
 /* 1. Hero Section */
 .hero-section {
-  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height to prevent layout thrashing on mobile scroll */
   display: flex;
   align-items: center;
   padding-top: 100px;

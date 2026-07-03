@@ -183,6 +183,8 @@ function initSkillsTabs() {
 }
 
 function initOrbits() {
+  if (window.innerWidth <= 768) return; // Disable heavy JS orbit animation on mobile
+  
   const outerIcons = document.querySelectorAll('.orbit-group-outer .orbit-icon-pos');
   const innerIcons = document.querySelectorAll('.orbit-group-inner .orbit-icon-pos');
 
