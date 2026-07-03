@@ -16,6 +16,8 @@
   border-radius: 50%;
   opacity: 0.4;
   animation: float 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .blob-1 {
@@ -117,5 +119,9 @@
     transform: none !important;
     transition: none !important;
     will-change: auto !important;
+  }
+  /* Pause heavy background animation to prevent scroll lag and shaking */
+  .aurora-blob {
+    animation-play-state: paused !important;
   }
 }

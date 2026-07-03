@@ -2,19 +2,25 @@ export function initParallax() {
   // Simple parallax for blobs
   const blobs = document.querySelectorAll('.aurora-blob');
   
+  let isTicking = false;
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    
-    blobs.forEach((blob, index) => {
-      const speed = 0.05 * (index + 1);
-      const yPos = -(scrollY * speed);
-      // We apply this on top of existing transform in CSS by using translate3d
-      // Note: This might conflict with the float animation in CSS.
-      // A better approach is to wrap blobs in a parallax container.
-      // But for simplicity, we just adjust their top/margin.
-      blob.style.transform = `translateY(${yPos}px)`;
-    });
-  });
+    // Disable parallax on mobile to fix shaking and lag
+    if (window.innerWidth <= 768) return;
+
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        
+        blobs.forEach((blob, index) => {
+          const speed = 0.05 * (index + 1);
+          const yPos = -(scrollY * speed);
+          blob.style.transform = `translateY(${yPos}px)`;
+        });
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, { passive: true });
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

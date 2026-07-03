@@ -255,6 +255,9 @@ function initProjectSlider() {
   let scrollLeft;
 
   const startAutoScroll = () => {
+    // Disable auto-scroll on mobile to prevent lag and conflict with native scroll
+    if (window.innerWidth <= 768) return;
+    
     if (projectSliderInterval) clearInterval(projectSliderInterval);
     projectSliderInterval = setInterval(() => {
       if(!isDown) slider.scrollLeft += 1;
@@ -269,6 +272,7 @@ function initProjectSlider() {
 
   slider.addEventListener('mouseenter', stopAutoScroll);
   slider.addEventListener('mouseleave', () => {
+    if (window.innerWidth <= 768) return;
     isDown = false;
     slider.style.cursor = 'grab';
     startAutoScroll();
