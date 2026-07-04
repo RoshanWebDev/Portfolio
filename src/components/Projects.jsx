@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import BeforeAfterSlider from './BeforeAfterSlider';
 
 const ShopifyIcon = () => (
@@ -13,6 +13,8 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [selectedCompare, setSelectedCompare] = useState(null);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
 
   const cards = [
     { 
@@ -101,14 +103,28 @@ export default function Projects() {
   };
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     let interval;
-    if (!isHovered) {
+    if (!isHovered && isInView) {
       interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % totalCards);
-      }, 2500); // Auto slide every 2.5 seconds
+      }, 2000); // Auto slide every 2 seconds
     }
     return () => clearInterval(interval);
-  }, [isHovered, totalCards]);
+  }, [isHovered, isInView, totalCards]);
 
   const getOffset = (index) => {
     let offset = index - activeIndex;
@@ -118,7 +134,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="projects-section section">
+    <section id="projects" className="projects-section section" ref={sectionRef}>
       <div className="container">
         <div className="section-header reveal-up text-center">
           <h2 className="section-title"><span className="text-gradient">Projects</span></h2>
