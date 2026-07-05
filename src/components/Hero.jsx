@@ -21,7 +21,7 @@ export default function Hero() {
           </h1>
           
           <p className="hero-subtitle reveal-up delay-2" style={{ fontSize: '1.1rem', lineHeight: 1.6, maxWidth: '500px', marginBottom: '2.5rem', color: '#a1a1aa' }}>
-            Full Stack Web Developer specializing in Shopify, WordPress, and modern web technologies. I build fast, scalable, and user-focused digital experiences.
+            Freelance Shopify & WordPress Developer based in Erode. I specialize in modern web technologies, building fast, scalable, and user-focused digital experiences.
           </p>
           
           <div className="hero-actions reveal-up delay-3" style={{ display: 'flex', gap: '1rem' }}>

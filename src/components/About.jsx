@@ -52,7 +52,7 @@ export default function About() {
           {/* RIGHT: Heading + Bio + Stats + CTA */}
           <div className="about-content reveal-up delay-2">
             <h3 className="about-headline-new" style={{ color: '#a1a1aa', fontWeight: 400, letterSpacing: '0px' }}>Who is <span style={{ color: '#ffffff', fontWeight: 600 }}>Roshan Asraf?</span></h3>
-            <p className="about-bio">I'm a Full Stack Web Developer with 1+ year of professional experience in Shopify and WordPress development. I specialize in building modern websites, custom Shopify themes, responsive user interfaces, and scalable web applications using HTML, CSS, JavaScript, React, Shopify Liquid, and AI-assisted development workflows.</p>
+            <p className="about-bio">I'm a freelance Shopify and WordPress developer based in Erode, with 1+ year of professional experience. I specialize in building modern websites, custom Shopify themes, responsive user interfaces, and scalable web applications using HTML, CSS, JavaScript, React, Shopify Liquid, and AI-assisted development workflows.</p>
 
             <div className="about-stats-minimalist" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '3rem', marginTop: '2rem', marginBottom: '3.5rem' }}>
               
